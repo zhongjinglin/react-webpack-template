@@ -18,6 +18,16 @@ module.exports = {
   module: {
     rules: [
       {
+        test: [/\.avif$/],
+        type: 'asset',
+        mimetype: 'image/avif',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 4 * 1024
+          }
+        }
+      },
+      {
         test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
         type: 'asset',
         parser: {
@@ -27,7 +37,33 @@ module.exports = {
         }
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2?)$/,
+        test: /\.svg$/,
+        use: [
+          {
+            loader: require.resolve('@svgr/webpack'),
+            options: {
+              prettier: false,
+              svgo: false,
+              svgoConfig: {
+                plugins: [{ removeViewBox: false }]
+              },
+              titleProp: true,
+              ref: true
+            }
+          },
+          {
+            loader: require.resolve('file-loader'),
+            options: {
+              name: 'static/media/[name].[hash].[ext]'
+            }
+          }
+        ],
+        issuer: {
+          and: [/\.(ts|tsx|js|jsx|md|mdx)$/]
+        }
+      },
+      {
+        test: /\.(eot|ttf|woff|woff2?)$/,
         type: 'asset/resource'
       },
       {

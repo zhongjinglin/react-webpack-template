@@ -6,10 +6,10 @@ module.exports = {
   devtool: false,
   output: {
     clean: true,
-    filename: '[name].[contenthash:8].js',
-    chunkFilename: '[name].[chunkhash].js',
     path: path.resolve(ROOT_PATH, './dist'),
-    assetModuleFilename: 'images/[name].[contenthash:8].[ext]',
+    filename: 'static/js/[name].[contenthash:8].js',
+    chunkFilename: 'static/js/[name].[contenthash:8].chunk.js',
+    assetModuleFilename: 'static/media/[name].[hash][ext]',
     publicPath: '/'
   }
 }
