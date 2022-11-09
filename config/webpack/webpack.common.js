@@ -8,10 +8,10 @@ module.exports = {
   },
   resolve: {
     alias: {
-      src: path.resolve(ROOT_PATH, './src'),
-      pages: path.resolve(ROOT_PATH, './src/pages'),
-      components: path.resolve(ROOT_PATH, './src/components'),
-      layouts: path.resolve(ROOT_PATH, './src/layouts')
+      '@src': path.resolve(ROOT_PATH, './src'),
+      '@pages': path.resolve(ROOT_PATH, './src/pages'),
+      '@components': path.resolve(ROOT_PATH, './src/components'),
+      '@layouts': path.resolve(ROOT_PATH, './src/layouts')
     },
     extensions: ['.tsx', '.ts', '.js', '.jsx', '.json']
   },
