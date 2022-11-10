@@ -1,5 +1,5 @@
 const path = require('path')
-const { ROOT_PATH, SERVER_PORT } = require('../constant')
+const { ROOT_PATH } = require('../constant')
 
 module.exports = {
   mode: 'development',
@@ -12,7 +12,6 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     open: true,
-    port: SERVER_PORT,
     compress: true,
     hot: false
   }
